@@ -1,0 +1,267 @@
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400&display=swap');
+
+// Variables
+$primary-color: #377bc4;
+$primary-color-dark: #1c8b55;
+$wave-color-light: rgba(255, 255, 255, 0.7);
+$wave-color-medium: rgba(255, 255, 255, 0.5);
+$wave-color-dark: rgba(255, 255, 255, 0.3);
+$background-gradient: linear-gradient(60deg, rgba(56, 110, 164, 0.8) 0%, rgba(16, 131, 43, 0.8) 100%);
+$services-background-gradient: linear-gradient(60deg, rgba(255, 87, 34, 0.8), rgba(230, 78, 2, 0.9) 100%);
+
+// Global styles
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+h1 {
+  font-weight: bold; /* Set headings to bold */
+  letter-spacing: 2px;
+  font-size: 48px;
+
+  b {
+    font-weight: bold; // Ensure bold tags inside .vision-goals-heading are styled correctly
+  }
+}
+
+p {
+  letter-spacing: 1px;
+  font-size: 14px;
+  color: #ffffff; /* Set paragraph text color to white */
+}
+
+// Header styles
+.header {
+  position: relative;
+  text-align: center;
+  background: linear-gradient(60deg, rgb(56, 110, 164) 0%, rgb(16, 131, 43) 100%);
+  color: white;
+  
+
+  .logo {
+    width: 50px;
+    fill: white;
+    padding-right: 15px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .inner-header {
+    height: 82vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    .header-image {
+      width: 600px; // Adjust width as needed
+      height: 400px; // Ensure aspect ratio is maintained
+      
+      margin-right: 20px; // Adjust spacing from text content
+      margin-left: 180px;
+      display: flex; // Ensures it behaves as a block element
+      border-radius:  30% ;
+      display: flex;
+      border: 2px solid white;
+      
+     
+     
+    }
+
+    .text-box{
+      margin-right: 20px;
+    }
+
+  }
+}
+
+// Waves styles
+.waves {
+  background: linear-gradient(60deg, rgb(56, 110, 164) 0%, rgb(16, 131, 43) 100%);
+  position: relative;
+  width: 100%;
+  height: 15vh;
+  margin-bottom: -7px; /* Fix for safari gap */
+  min-height: 100px;
+  max-height: 150px;
+}
+
+.waves1 {
+  background: white;
+  position: relative;
+  width: 100%;
+  height: 15vh;
+  margin-bottom: -7px; /* Fix for safari gap */
+  min-height: 100px;
+  max-height: 150px;
+}
+
+// Content styles
+.content {
+  position: relative;
+  height: 20vh;
+  text-align: center;
+  background-color: white;
+}
+
+// Animation
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+}
+
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+// Shrinking for mobile
+@media (max-width: 768px) {
+  .waves {
+    height: 40px;
+    min-height: 40px;
+  }
+
+  .content {
+    height: 30vh;
+  }
+
+  h1, h2 {
+    font-size: 24px;
+  }
+}
+
+// Button styles
+.button {
+  display: inline-block;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+
+  &:hover {
+    background-color: $primary-color-dark;
+  }
+}
+
+// Vision, Mission, and Values styles
+.vision-mission-values-container {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: white;
+  color: rgb(40, 131, 152);
+
+  .section-heading {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  .vision-mission-values-list {
+    display: flex;
+    flex-direction: column; // Make the list items stack vertically
+    align-items: center;
+
+    .card-item {
+      background: rgba(77, 165, 78, 0.916);
+      margin: 10px;
+      padding: 20px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 600px; // Optional: Set a max width for better readability
+      box-sizing: border-box;
+      color: white;
+
+      h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 16px;
+        color: rgb(234, 229, 229); // Ensure text color is black
+      }
+    }
+  }
+}
+
+// Services styles
+.services-container {
+  padding: 50px 20px;
+  text-align: center;
+  background: $services-background-gradient;
+  color: white;
+
+  .services-heading {
+    font-size: 36px;
+    margin-bottom: 20px;
+
+    
+   
+   
+
+  }
+
+  h2{
+    border-bottom: 1px dotted white;
+    padding: 1%;
+    
+    
+  }
+  .services-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .service-item {
+      background: rgba(88, 37, 37, 0.1);
+      margin: 10px;
+      padding: 20px;
+      border-radius: 10px;
+      flex-basis: calc(33.333% - 20px);
+      box-sizing: border-box;
+      border-bottom-left-radius: 80px 80px;
+
+      h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        
+      }
+
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+}

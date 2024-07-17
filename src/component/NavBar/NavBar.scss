@@ -1,0 +1,68 @@
+.navbar-custom {
+  background-color: none !important; // Set background to none
+  height: 80px; // Fixed height for the navbar
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+
+}
+
+.navbar-custom .nav-link,
+.navbar-custom .navbar-brand {
+  color: rgb(50, 108, 165) !important; // Set text color to blue for navbar links and brand
+  transition: color 0.3s ease;
+  font-weight: bold;
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .navbar-brand:hover {
+  color: rgb(20, 172, 66) !important; // White text on hover
+  border-bottom: 3px solid rgb(20, 172, 66); // Blue background on hover
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-custom .nav-link:focus,
+.navbar-custom .navbar-brand:focus {
+  color: #22609b !important; // Darker gray on focus
+  transition: color 0.3s ease;
+}
+
+.navbar-custom .navbar-brand {
+  margin-right: 20px; // Add right margin to separate logo from other elements
+}
+
+.navbar-custom .navbar-brand img {
+  max-height: 200px; // Adjust the image height to fit within the navbar
+  max-width: 110px; // Adjust the image width as needed
+}
+
+.navbar-custom .center-logo {
+ 
+  max-height: 300px; // Adjust the image height to fit within the navbar
+  max-width: 300px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-40%);
+  transform: translateY(1%);
+  img{
+    border-radius: 75%;
+  }
+}
+
+.navbar-custom .contact-button,
+.navbar-custom .email-button {
+  
+  padding: 10px 20px; // Adjust padding as needed
+ 
+  border-radius: 5px; // Optional: Add border-radius for rounded corners
+  text-decoration: none; // Remove default underline
+  margin-left: 20px; // Add left margin between buttons
+ 
+}
+
+.navbar-custom .contact-button:hover,
+.navbar-custom .email-button:hover {
+ 
+  transition: background-color 0.3s ease;
+}

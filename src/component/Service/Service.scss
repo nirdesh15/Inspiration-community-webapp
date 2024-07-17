@@ -1,0 +1,113 @@
+/* JUMBOTRON STYLES */
+.jumbotron {
+  background: 
+    linear-gradient(
+      rgb(230, 13, 13), 
+      rgba(222, 93, 7, 0.88)
+    ),
+    url(https://source.unsplash.com/1600x1050/?computer+screen);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white !important;
+  height: 60vh;
+  margin-top: 5vh;
+  padding-top: 10vh;
+
+  .btn-group {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+}
+
+/* BUTTON STYLES */
+.btn-outline-primary:active {
+  border-color: transparent;
+  color: black;
+  background-color: white;
+  padding: 9px 20px;
+}
+
+/* CONTAINER STYLES */
+.container {
+  .btm-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(234, 227, 239);
+    border: 3px solid rgb(226, 216, 229);
+    margin: 0 auto;
+    margin-top: 3vh;
+    padding: 10px;
+    background-color: white;
+    color: rgb(210, 8, 8);
+    border: 3px solid rgb(200, 39, 39);
+
+    &:hover {
+      background-color: rgb(9, 92, 164);
+      color: rgb(236, 231, 231);
+      border: 3px solid rgb(238, 227, 227);
+    }
+  }
+}
+
+/* CONTENT STYLES */
+.content {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: white;
+  height: 80%;
+
+  .content-left {
+    flex: 1;
+    padding: 20px;
+
+    .content-image {
+      width: 80%;
+      height: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+  }
+
+  .content-right {
+    flex: 1;
+    padding: 20px;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: rgb(23, 21, 21);
+      filter: brightness(0.9);
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: rgb(23, 21, 21);
+      text-align: left; /* Align paragraph text to the left */
+
+      /* Adjust paragraph margin and padding */
+      margin-top: 1em;
+      margin-bottom: 1em;
+      padding-left: 1em;
+
+      /* Bullet points styling */
+      ul {
+        list-style-type: none; /* Remove default bullet points */
+        padding-left: 0;
+        margin-bottom: 1em;
+      }
+
+      li {
+        margin-bottom: 0.5em;
+
+        /* Strong emphasis for bullet point headings */
+        strong {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
