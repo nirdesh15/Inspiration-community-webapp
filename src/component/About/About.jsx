@@ -6,7 +6,7 @@ const About = () => {
     <div id="parallax-world-of-ugg">
       <section>
         <div className="title">
-          <h3>Dream . Believe . Live</h3>
+          <h3 className='tt1'>Dream . Believe . Live</h3>
           <h1>Inspiration Community Care</h1>
           <br />
           <h3>About Us</h3>
@@ -119,7 +119,7 @@ const About = () => {
        
         <div className="block">
           <img
-            src="/undraw_medical_care_movn.png" // Replace with your image path
+            src="/undraw_team_re_0bfe.svg" // Replace with your image path
             alt="nurse" // Add alt text for accessibility
             className="header-image"
           />

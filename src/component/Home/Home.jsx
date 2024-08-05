@@ -305,49 +305,92 @@ const SimpleWavesComponent = () => {
       <div className="services-container">
         <h2 className="services-heading animate__animated animate__fadeInRight">Our Services</h2>
         <div className="services-list">
-          <div className="service-item animate__animated animate__fadeInRight">
-            <h3><i class="bi bi-prescription2"></i></h3>
-            <p>Daily Personal Activities</p>
+  <div className="service-item"> 
+    <Link to='/service'>
+      <button>    
+        <h3><i className="bi bi-calendar2"></i></h3>
+        <p>Daily Personal Activities</p>
+      </button>
+    </Link>
+  </div> 
+  <div className="service-item">
+    <Link to='/service-2'>
+      <button>
+        <h3><i className="bi bi-stars"></i><i className="bi bi-house-fill"></i></h3>
+        <p>Household Task Assistance</p>
+      </button>
+    </Link>
+  </div>
+  <div className="service-item"> 
+    <Link to='/service-3'>
+      <button>
+        <h3><i className="bi bi-car-front-fill"></i></h3>
+        <p>Travel and Transport Assistance</p>
+      </button>
+    </Link>
+  </div>
+  <div className="service-item">
+    <Link to='/service-4'>
+      <button>
+        <h3><i className="bi bi-balloon-heart"></i><i className="bi bi-people-fill"></i></h3>
+        <p>Community Nursing Services</p>
+      </button>
+    </Link>
+  </div>
+  <div className="service-item">  
+    <Link to='/service-5'>
+      <button>    
+        <h3><i className="bi bi-stack"></i></h3>
+        <p>Community Participation</p>
+      </button>
+    </Link>
+  </div>
+  <div className="service-item">
+    <Link to='/service-6'>
+      <button>
+        <h3><i className="bi bi-person-wheelchair"></i></h3>
+        <p>Assistance for Shared Living Accommodation</p>
+      </button>
+    </Link>
+  </div>
+  <div className="service-item">
+    <Link to='/service-7'>
+      <button>
+        <h3><i className="bi bi-alexa"></i></h3>
+        <p>Specialised Disability Assistance</p>
+      </button>
+    </Link>
+  </div>
+  <div className="service-item">
+    <Link to='/service-8'>
+      <button>
+        <h3><i className="bi bi-clock"></i></h3>
+        <p>24/7 Support Service</p>
+      </button>
+    </Link>
+  </div>
+</div>
+
+      </div>
+      <section>
+        <div className="parallax-one">
+          <div className="title-container">
+            <h1><span>Inspiration </span> Community Care</h1>
+            <h3>Contact Us Today for More Information</h3>
+
+
           </div>
-          <div className="service-item animate__animated animate__fadeInRight">
-            <h3><i class="bi bi-stars"></i><i class="bi bi-house-fill"></i></h3>
-            <p>Household Task Assistance</p>
-          </div>
-          <div className="service-item animate__animated animate__fadeInRight">
-            <h3><i class="bi bi-balloon-heart"></i><i class="bi bi-people-fill"></i></h3>
-            <p>Community Nursing Care</p>
-          </div>
-          <div className="service-item animate__animated animate__fadeInRight">
-            <h3><i class="bi bi-car-front-fill"></i></h3>
-            <p>Travel and Transport Assistance</p>
-          </div>
-          <div className="service-item animate__animated animate__fadeInRight">
-            <h3><i class="bi bi-stack"></i></h3>
-            <p>Personal Care Assistance.</p>
-          </div>
-          <div className="service-item animate__animated animate__fadeInRight">
-            <h3><i class="bi bi-person-wheelchair"></i></h3>
-            <p>Specialised Disability Assistance</p>
-          </div>
-          <div className="service-item animate__animated animate__fadeInRight">
-            <h3><i class="bi bi-alexa"></i></h3>
-            <p>Assistance for Shared Living Accomodation</p>
-          </div>
-          <div className="service-item animate__animated animate__fadeInRight">
-            <h3><i class="bi bi-chat-square-heart"></i></h3>
-            <p>Innovate Community Participation</p>
-          </div>
-          <div className="service-item animate__animated animate__fadeInRight">
-            <h3><i class="bi bi-trophy"></i></h3>
-            <p>Group Based Activities</p>
-          </div>
-          <div className="service-item animate__animated animate__fadeInRight">
-            <h3><i class="bi bi-shield-check"></i> <i class="bi bi-moon"></i></h3>
-            <p>Overnight Home Care</p>
+          <div className="button-container">
+            <Link to='/contact'>
+              <Button>Contact Us</Button>
+            </Link>
+            <br />
+            <span>Only takes a few seconds!</span>
           </div>
         </div>
-      </div>
+      </section>
     </div>
+    
   );
 };
 

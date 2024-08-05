@@ -1,0 +1,141 @@
+@import '../../../responsive.scss';
+/* JUMBOTRON STYLES */
+.jumbotron-3 {
+    background: 
+    linear-gradient(60deg, rgba(107, 28, 152, 0.8), rgba(91, 36, 9, 0.9) 100%),
+      url(https://source.unsplash.com/1600x1050/?computer+screen);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: whitesmoke !important;
+    height: auto;
+    margin-top: 5vh;
+    padding-top: 10vh;
+  
+    .btn-group {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+  }
+  
+  /* BUTTON STYLES */
+  .btn-outline-primary:active {
+    border-color: transparent;
+    color: black;
+    background-color: white;
+    padding: 9px 20px;
+  }
+  
+  /* CONTAINER STYLES */
+  .container {
+    .btm-1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: rgb(234, 227, 239);
+      border: 3px solid rgb(226, 216, 229);
+      margin: 0 auto;
+      margin-top: 3vh;
+      padding: 10px;
+      background-color: white;
+      color: rgb(210, 8, 8);
+      border: 3px solid rgb(200, 39, 39);
+  
+      &:hover {
+        background-color: rgb(9, 92, 164);
+        color: rgb(236, 231, 231);
+        border: 3px solid rgb(238, 227, 227);
+      }
+    }
+  }
+  
+  /* CONTENT STYLES */
+  .content {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: white;
+    height: auto;
+
+    @include md{
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: space-between;
+  
+    }
+  
+    .content-left-3 {
+  
+      flex: 1;
+      padding: 20px;
+     
+      gap: 5px;
+  
+      
+      color: rgba(63, 41, 153, 0.874);
+        
+      
+      
+      .content-image {
+        width: 40vh;
+        height: 40vh;
+  
+       
+      
+       
+      }
+    }
+  
+    .content-right-3{
+      flex: 2;
+      padding: 20px;
+  
+     
+  
+  
+        ul{
+         
+          h2{
+            color:  rgba(63, 41, 153, 0.874);
+          }
+         li{
+          
+          display: flex;
+          flex-direction: column;
+  
+           
+          
+         
+        /* Bullet points styling */
+        ul {
+          list-style-type: circle;
+          
+          margin-bottom: 1em;
+          display: flex;
+          align-items: center;
+          
+          
+          flex-direction: column;
+  
+          b{
+            color: rgba(91, 36, 9, 0.9);
+           
+            
+          }
+  
+        }
+  
+       
+        
+      }
+     
+  
+      }
+  
+     
+      
+    }
+  }
+  
+  

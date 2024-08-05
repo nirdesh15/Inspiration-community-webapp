@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald:300,400,700');
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic');
-
+@import '../../responsive.scss';
 // Override UGG site
 #main {
   width: 100%;
@@ -98,6 +98,14 @@
     padding: 60px;
     margin: 0 auto;
     text-align: center;
+   .tt1{
+     @include sm{
+      
+      font-size: 9px;
+      
+
+     }
+    }
   }
 
   .title h1 {
@@ -108,6 +116,7 @@
   // Section - Block
   /**************************/
   .block {
+    
     background: white;
     padding-top: 20px ;
     margin-right: 0px;
@@ -115,6 +124,11 @@
     margin: 0 auto;
     text-align: justify;
     display: flex; // Use flexbox for layout
+
+    @include md{
+      display: flex;
+      flex-direction: column;
+    }
 
     h1{
       font-size: 30px;
@@ -131,21 +145,55 @@
       display: block; // Ensures it behaves as a block element
       border-radius: 0px;
       margin-right: 20px; // Add some space between image and text
+       @include md{
+        
+        margin-left: 20%;
+       }
+       @include sm{
+        
+        margin-left: auto ;
+       }
     }
   
     .text-content {
       flex: 1; // Allow the text to take up remaining space
+
+      @include md{
+        
+        flex:3;
+        margin-top: 2vh;
+       }
+
+    
     }
 
   }
 
   .cards-container {
+
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 20px;
     padding: 40px 20px;
-  
+
+  @include md{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+
+   
+  }
+
+  @include sm{
+    position: relative;
+   
+    padding: 10px;
+   
+
+   
+  }
     .card {
       background: white;
      
@@ -155,25 +203,33 @@
       width: calc(33% - 40px);
       margin: 20px 0;
       text-align: center;
+
+      @include md{
+       padding:20px;
+       width: auto;
+       
+      }
+
+      @include sm{
+       
+        
+       }
   
       h2 {
         margin-bottom: 10px;
         font-size: 1.5em;
         color: #276941;
+        
       }
   
       p {
+
         font-size: 1em;
         color: #27186b;
+        
       }
   
-      @media (max-width: 768px) {
-        width: calc(50% - 40px);
-      }
-  
-      @media (max-width: 480px) {
-        width: calc(100% - 40px);
-      }
+      
     }
   }
 
@@ -188,8 +244,18 @@
   flex-direction: column;
   width: 380px;
 
+ 
   // Container for profile picture
   .container {
+    @include md{
+      display: flex;
+      position: relative;
+      align-items: center;
+     margin-left: 2%;
+     margin-bottom: 40px;
+    }
+
+  
     border-radius: 50%;
     height: 312px;
     transform: scale(0.48);
@@ -296,7 +362,7 @@
     padding-top: 200px;
     padding-bottom: 200px;
     overflow: hidden;
-    position: relative;
+    position: static;
     width: 100%;
     background-image: url('https://images.pexels.com/photos/339620/pexels-photo-339620.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
     background-attachment: fixed;
@@ -313,7 +379,7 @@
     padding-top: 200px;
     padding-bottom: 200px;
     overflow: hidden;
-    position: relative;
+    position: static;
     width: 100%;
     background-image: url('https://mintconsulting.org/wp-content/uploads/2019/03/NDIS-landscape.jpg');
     background-attachment: fixed;
@@ -329,7 +395,7 @@
     padding-top: 200px;
     padding-bottom: 200px;
     overflow: hidden;
-    position: relative;
+    position: sta;
     width: 100%;
     background-image: url('../../../public/family.jpg');
     background-attachment: fixed;

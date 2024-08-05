@@ -1,68 +1,259 @@
+@import "../../responsive.scss";
+
+body {
+  margin-top: 2vh;
+  padding-bottom: auto;
+
+  @include md {
+    padding-bottom: 3px;
+  }
+  body.no-scroll {
+    overflow: hidden;
+    position: relative;
+  }
+}
+/* Add this CSS to your NavBar.scss or another global CSS file */
+
+/* Add this CSS to your NavBar.scss or another global CSS file */
+
+
+
+
 .navbar-custom {
-  background-color: none !important; // Set background to none
-  height: 80px; // Fixed height for the navbar
+
+  
+  height: 80px;
   display: flex;
   align-items: center;
   margin: 10px;
   padding: 10px;
+  background-color: none !important;
 
-}
+  .navbar-brand {
+    .img-1 {
+      margin: 0;
+      max-height: 150px;
+      max-width: 110px;
 
-.navbar-custom .nav-link,
-.navbar-custom .navbar-brand {
-  color: rgb(50, 108, 165) !important; // Set text color to blue for navbar links and brand
-  transition: color 0.3s ease;
-  font-weight: bold;
-}
-
-.navbar-custom .nav-link:hover,
-.navbar-custom .navbar-brand:hover {
-  color: rgb(20, 172, 66) !important; // White text on hover
-  border-bottom: 3px solid rgb(20, 172, 66); // Blue background on hover
-  transition: color 0.3s ease, background-color 0.3s ease;
-}
-
-.navbar-custom .nav-link:focus,
-.navbar-custom .navbar-brand:focus {
-  color: #22609b !important; // Darker gray on focus
-  transition: color 0.3s ease;
-}
-
-.navbar-custom .navbar-brand {
-  margin-right: 20px; // Add right margin to separate logo from other elements
-}
-
-.navbar-custom .navbar-brand img {
-  max-height: 200px; // Adjust the image height to fit within the navbar
-  max-width: 110px; // Adjust the image width as needed
-}
-
-.navbar-custom .center-logo {
- 
-  max-height: 300px; // Adjust the image height to fit within the navbar
-  max-width: 300px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-40%);
-  transform: translateY(1%);
-  img{
-    border-radius: 75%;
+      @include sm {
+        max-height: 100px;
+        max-width: 80px;
+      }
+    }
   }
-}
 
-.navbar-custom .contact-button,
-.navbar-custom .email-button {
-  
-  padding: 10px 20px; // Adjust padding as needed
- 
-  border-radius: 5px; // Optional: Add border-radius for rounded corners
-  text-decoration: none; // Remove default underline
-  margin-left: 20px; // Add left margin between buttons
- 
-}
+  h6 {
+    color: #1a9549;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center; // Center horizontally
+    flex-direction: row;
+    position: relative;
+    gap: 5px;
+    left: 2%;
 
-.navbar-custom .contact-button:hover,
-.navbar-custom .email-button:hover {
- 
-  transition: background-color 0.3s ease;
-}
+    @include md {
+      left: -15%;
+    }
+
+    .img-2 {
+      height: 50px;
+      width: 90px;
+      border-radius: 100%;
+
+      @include sm {
+        display: none;
+      }
+    }
+
+    span {
+      @include sm {
+        font-size: 13px;
+        margin-left: 20px;
+      }
+    }
+  }
+
+  .nav-items {
+    display: flex;
+    left: 40%;
+    justify-content: center; // Center nav items
+    align-items: center;
+    
+    }
+
+    @include md {
+      display: none;
+    }
+
+    a {
+      margin: 0 10px; // Adjust spacing as needed
+    }
+  }
+
+  .nav-link,
+  .navbar-brand {
+    color: rgb(41, 127, 213) !important;
+    transition: color 0.3s ease;
+    font-weight: bold;
+
+    &:hover {
+      color: rgb(20, 172, 66) !important;
+      border-bottom: 3px solid rgb(20, 172, 66);
+    }
+
+    &:focus {
+      color: #1a9549 !important;
+      border-bottom: 3px solid rgb(21, 129, 21);
+    }
+
+   
+  }
+
+  .active-link {
+    color: rgb(20, 172, 66) !important;
+    border-bottom: 3px solid rgb(20, 172, 66);
+  }
+
+  .contact-button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-left: 20px;
+
+    &.active-contact {
+      color: #FFFFFF;
+      background-color: #0450dc;
+      border-bottom: 3px solid #1c41d6;
+    }
+  }
+
+  .menuIcon {
+    z-index: 9999;
+    display: none;
+
+    @include sm {
+      display: inline;
+    }
+
+    @include md {
+      display: initial;
+    }
+
+    img {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      transition: left 0.3s eases;
+
+      
+    }
+  }
+
+  .menu {
+    z-index: 999;
+    position: fixed; // Changed to fixed to cover the viewport
+    top: 0; // Aligned to top of the viewport
+    right: -100%; // Offscreen initially
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 80%;
+    transition: right 0.6s ease; // Adjusted transition timing
+    padding: 20px;
+    font-size: 24px;
+    opacity: 0;
+    visibility: hidden;
+    gap: 5px;
+
+    @include sm{
+     margin-top: -160px;
+     height: 120vh;
+    }
+    &.active {
+      right: 0;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    a {
+    
+      text-decoration: none;
+      color: white;
+      margin-top: 2px;
+      transition: color 0.8s ease;
+
+      &:hover {
+        color: #1a9549;
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 10px;
+        border-radius: 5px;
+      }
+    }
+
+    .dropdown {
+      position: relative;
+      width: 100%; // Make dropdown content align properly
+      text-align: center;
+
+      .dropdownButton {
+        background: black;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        width: auto;
+        padding: auto;
+        transition: color 0.3s ease;
+
+        &.active {
+          color: #ccc;
+        }
+
+
+      }
+
+      .dropdownContent {
+        display: flex;
+        flex-direction: column;
+        width: 100%; // Full width for proper alignment
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: black;
+        padding: 10px;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        font-size: 17px;
+        text-align: left;
+        margin-top: 4px;
+        gap: 4px;
+        overflow: scroll;
+
+        a {
+          color: white;
+          text-decoration: none;
+          padding: 5px 0;
+          display: block;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: #333;
+          }
+        }
+      }
+
+      .dropdownContent.show {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
