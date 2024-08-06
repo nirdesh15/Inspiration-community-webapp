@@ -1,5 +1,6 @@
 import React from 'react';
 import './About.scss';
+import CommunityCareSection from '../contactcard/contactcard';
 
 const About = () => {
   return (
@@ -136,9 +137,36 @@ const About = () => {
             <li>WHS trained</li></p>
 
           </div>
+
         </div>
       </section>
+      <section className="photo-collage">
+        <h2>Expo Day of Inspiration Comminity</h2>
+        <div className="photo-grid">
+          <div className="photo-item">
+            <img src="/IMG_5809.JPG" alt="Event Photo 1" />
+            <div className="caption">Captivating Moments</div>
+          </div>
+          <div className="photo-item">
+            <img src="/IMG_5810.JPG" alt="Event Photo 2" />
+            <div className="caption">Inspiring Connections</div>
+          </div>
+          <div className="photo-item">
+            <img src="/IMG_5812.JPG" alt="Event Photo 3" />
+            <div className="caption">Community Engagement</div>
+          </div>
+          <div className="photo-item">
+            <img src="/IMG_5813.JPG" alt="Event Photo 4" />
+            <div className="caption">Shared Joy</div>
+          </div>
+        </div>
+        <p className="collage-caption">Dream . Believe . Live </p>
+        
+      </section>
+      <div className='contact'><CommunityCareSection/></div>
+    
     </div>
+   
   );
 }
 

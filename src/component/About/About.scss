@@ -452,6 +452,75 @@
     }
     
   }
+  .photo-collage {
+    padding: 40px 20px;
+    text-align: center;
+    margin-left: 15vh;
+  
+    h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #3b8595;
+    }
+  
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      justify-items: center;
+  
+      .photo-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+        img {
+          width: 100%;
+          height: auto;
+          display: block;
+          transition: transform 0.3s ease;
+        }
+  
+        .caption {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          background: rgba(0, 0, 0, 0.5);
+          color: white;
+          text-align: center;
+          padding: 10px;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+  
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+  
+          img {
+            transform: scale(1.1);
+          }
+  
+          .caption {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  
+    .collage-caption {
+      margin-top: 38px;
+      font-weight: 1000px;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 18px;
+      color: #db9d22;
+    }
+  }
+  
 
   // Extras
   /**************************/

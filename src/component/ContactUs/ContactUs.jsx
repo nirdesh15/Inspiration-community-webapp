@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './ContactUs.scss';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import emailjs from '@emailjs/browser';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
+// States and cities data
 const statesCities = {
   NSW: ['Sydney', 'Newcastle', 'Wollongong'],
   VIC: ['Melbourne', 'Geelong', 'Ballarat'],
@@ -26,128 +28,139 @@ const Contact = () => {
     countryCode: '+61',
     address: '',
     state: '',
-    city: ''
+    city: '',
   });
-
   const [cities, setCities] = useState([]);
 
+  // Audio reference
+  const audioRef = useRef(null);
+
   useEffect(() => {
-    if (formFields.state) {
-      setCities(statesCities[formFields.state] || []);
-    } else {
-      setCities([]);
-    }
+    setCities(statesCities[formFields.state] || []);
   }, [formFields.state]);
 
+  // Validation functions
   const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const validatePhoneNumber = (phone) => /^\+?[1-9]\d{1,14}$/.test(phone);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormFields(prevFields => ({ ...prevFields, [name]: value }));
+    setFormFields((prevFields) => ({ ...prevFields, [name]: value }));
 
-    if (name === 'email') {
-      setFormErrors(prevErrors => ({
-        ...prevErrors,
-        email: validateEmail(value) ? '' : 'Please enter a valid email address.'
-      }));
-    }
-
-    if (name === 'phone') {
-      setFormErrors(prevErrors => ({
-        ...prevErrors,
-        phone: validatePhoneNumber(value) ? '' : 'Please enter a valid phone number.'
-      }));
-    }
-
-    if (name === 'name' && !value.trim()) {
-      setFormErrors(prevErrors => ({ ...prevErrors, name: 'Please enter your name.' }));
-    }
-
-    // Clear errors for other fields on change
-    if (['subject', 'message', 'address', 'state', 'city'].includes(name)) {
-      setFormErrors(prevErrors => ({ ...prevErrors, [name]: '' }));
+    // Handle validation
+    switch (name) {
+      case 'email':
+        setFormErrors((prevErrors) => ({
+          ...prevErrors,
+          email: validateEmail(value) ? '' : 'Please enter a valid email address.',
+        }));
+        break;
+      case 'phone':
+        setFormErrors((prevErrors) => ({
+          ...prevErrors,
+          phone: validatePhoneNumber(value) ? '' : 'Please enter a valid phone number.',
+        }));
+        break;
+      case 'name':
+        setFormErrors((prevErrors) => ({
+          ...prevErrors,
+          name: value.trim() ? '' : 'Please enter your name.',
+        }));
+        break;
+      default:
+        setFormErrors((prevErrors) => ({ ...prevErrors, [name]: '' }));
+        break;
     }
   };
 
   const isFormValid = () => {
-    return !(
-      !formFields.name.trim() ||
-      !validateEmail(formFields.email.trim()) ||
-      !formFields.subject.trim() ||
-      !formFields.message.trim() ||
-      !validatePhoneNumber(formFields.phone.trim()) ||
-      !formFields.address.trim() ||
-      !formFields.state ||
-      !formFields.city
-    );
+    const errors = {};
+    let isValid = true;
+
+    // Validate each field
+    if (!formFields.name.trim()) {
+      errors.name = 'Please enter your name.';
+      isValid = false;
+    }
+    if (!validateEmail(formFields.email.trim())) {
+      errors.email = 'Please enter a valid email address.';
+      isValid = false;
+    }
+    if (!formFields.subject.trim()) {
+      errors.subject = 'Please enter a subject.';
+      isValid = false;
+    }
+    if (!formFields.message.trim()) {
+      errors.message = 'Please enter a message.';
+      isValid = false;
+    }
+    if (!validatePhoneNumber(formFields.phone.trim())) {
+      errors.phone = 'Please enter a valid phone number.';
+      isValid = false;
+    }
+    if (!formFields.address.trim()) {
+      errors.address = 'Please enter your address.';
+      isValid = false;
+    }
+    if (!formFields.state) {
+      errors.state = 'Please select your state.';
+      isValid = false;
+    }
+    if (!formFields.city) {
+      errors.city = 'Please select your city.';
+      isValid = false;
+    }
+
+    setFormErrors(errors);
+    return isValid;
+  };
+
+  const playSound = () => {
+    if (audioRef.current) {
+      audioRef.current.play(); // Play the audio
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const { name, email, subject, message, phone, address, state, city } = formFields;
-    let errors = {};
-    let isValid = true;
-
-    if (!name.trim()) {
-      errors.name = 'Please enter your name.';
-      isValid = false;
-    }
-    if (!email.trim() || !validateEmail(email.trim())) {
-      errors.email = 'Please enter a valid email address.';
-      isValid = false;
-    }
-    if (!subject.trim()) {
-      errors.subject = 'Please enter a subject.';
-      isValid = false;
-    }
-    if (!message.trim()) {
-      errors.message = 'Please enter a message.';
-      isValid = false;
-    }
-    if (!phone.trim() || !validatePhoneNumber(phone.trim())) {
-      errors.phone = 'Please enter a valid phone number.';
-      isValid = false;
-    }
-    if (!address.trim()) {
-      errors.address = 'Please enter your address.';
-      isValid = false;
-    }
-    if (!state) { 
-      errors.state = 'Please select your state.';
-      isValid = false;
-    }
-    if (!city) {
-      errors.city = 'Please select your city.';
-      isValid = false;
-    }
-
-    if (!isValid) {
-      setFormErrors(errors);
-      setIsSubmitted(true);
+    if (!isFormValid()) {
+      setIsSubmitted(false);
       return;
     }
+
+    setIsSubmitted(true);
+    playSound(); // Play sound when alert is shown
 
     // Send email using EmailJS
     emailjs.sendForm('service_6m24qo9', 'template_ftp1jfb', e.target, 'Ttc75A3IfLbUBRPdM')
       .then((result) => {
-          console.log(result.text);
-          alert('Form submitted successfully!');
-      }, (error) => {
-          console.log(error.text);
-          alert('There was an error submitting the form. Please try again later.');
+        console.log(result.text);
+        setIsSubmitted(true);
+        setTimeout(() => setIsSubmitted(false), 5000); // Hide alert after 5 seconds
+        setFormFields({
+          name: '',
+          email: '',
+          subject: '',
+          message: '',
+          phone: '',
+          countryCode: '+61',
+          address: '',
+          state: '',
+          city: '',
+        });
+      })
+      .catch((error) => {
+        console.log(error.text);
+        alert('There was an error submitting the form. Please try again later.');
       });
-
-    setIsSubmitted(false);
-    setFormFields({ name: '', email: '', subject: '', message: '', phone: '', countryCode: '+61', address: '', state: '', city: '' });
   };
 
   return (
     <section id="contact" className="contact">
       <div className="container" data-aos="fade-up">
         <div className="section-title">
-        <i class="bi bi-envelope-paper-heart"></i>  Connect with us.
+          <i className="bi bi-envelope-paper-heart"></i> Connect with us.
         </div>
 
         <div className="row">
@@ -160,7 +173,7 @@ const Contact = () => {
               </div>
 
               <div className="email">
-                <i className="bi bi-envelope" ></i>
+                <i className="bi bi-envelope"></i>
                 <h4>Email:</h4>
                 <p>info@inspirationcommunitycare.com.au</p>
               </div>
@@ -217,7 +230,7 @@ const Contact = () => {
 
               <div className="row">
                 <div className="form-group col-md-6">
-                  <label htmlFor="countryCode">Country Code  <span className="required">*</span></label>
+                  <label htmlFor="countryCode">Country Code <span className="required">*</span></label>
                   <select
                     name="countryCode"
                     id="countryCode"
@@ -225,16 +238,15 @@ const Contact = () => {
                     value={formFields.countryCode}
                     onChange={handleChange}
                   >
-                    {countryCodes.map((country, index) => (
-                      <option key={index} value={country.code}>
-                        {country.code} {country.name}
-                      </option>
+                    {countryCodes.map(code => (
+                      <option key={code.code} value={code.code}>{code.code} {code.name}</option>
                     ))}
                   </select>
                   {formErrors.countryCode && <div className="invalid-feedback">{formErrors.countryCode}</div>}
                 </div>
+
                 <div className="form-group col-md-6">
-                  <label htmlFor="phone">Your Phone <span className="required">*</span></label>
+                  <label htmlFor="phone">Phone Number <span className="required">*</span></label>
                   <input
                     type="text"
                     name="phone"
@@ -248,21 +260,20 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="form-group">
-                <label htmlFor="address">Address <span className="required">*</span></label>
-                <input
-                  type="text"
-                  name="address"
-                  className={`form-control ${formErrors.address ? 'is-invalid' : ''}`}
-                  id="address"
-                  value={formFields.address}
-                  onChange={handleChange}
-                  placeholder="Enter your address"
-                />
-                {formErrors.address && <div className="invalid-feedback">{formErrors.address}</div>}
-              </div>
-
               <div className="row">
+                <div className="form-group col-md-6">
+                  <label htmlFor="address">Address <span className="required">*</span></label>
+                  <input
+                    type="text"
+                    name="address"
+                    className={`form-control ${formErrors.address ? 'is-invalid' : ''}`}
+                    id="address"
+                    value={formFields.address}
+                    onChange={handleChange}
+                    placeholder="Enter your address"
+                  />
+                  {formErrors.address && <div className="invalid-feedback">{formErrors.address}</div>}
+                </div>
                 <div className="form-group col-md-6">
                   <label htmlFor="state">State <span className="required">*</span></label>
                   <select
@@ -273,14 +284,15 @@ const Contact = () => {
                     onChange={handleChange}
                   >
                     <option value="">Select State</option>
-                    {Object.keys(statesCities).map((state, index) => (
-                      <option key={index} value={state}>
-                        {state}
-                      </option>
+                    {Object.keys(statesCities).map(state => (
+                      <option key={state} value={state}>{state}</option>
                     ))}
                   </select>
                   {formErrors.state && <div className="invalid-feedback">{formErrors.state}</div>}
                 </div>
+              </div>
+
+              <div className="row">
                 <div className="form-group col-md-6">
                   <label htmlFor="city">City <span className="required">*</span></label>
                   <select
@@ -289,13 +301,10 @@ const Contact = () => {
                     className={`form-control ${formErrors.city ? 'is-invalid' : ''}`}
                     value={formFields.city}
                     onChange={handleChange}
-                    disabled={!formFields.state}
                   >
                     <option value="">Select City</option>
-                    {cities.map((city, index) => (
-                      <option key={index} value={city}>
-                        {city}
-                      </option>
+                    {cities.map(city => (
+                      <option key={city} value={city}>{city}</option>
                     ))}
                   </select>
                   {formErrors.city && <div className="invalid-feedback">{formErrors.city}</div>}
@@ -306,13 +315,13 @@ const Contact = () => {
                 <label htmlFor="subject">Subject <span className="required">*</span></label>
                 <input
                   type="text"
-                    name="subject"
-                    className={`form-control ${formErrors.subject ? 'is-invalid' : ''}`}
-                    id="subject"
-                    value={formFields.subject}
-                    onChange={handleChange}
-                    placeholder="Enter subject"
-                  />
+                  name="subject"
+                  className={`form-control ${formErrors.subject ? 'is-invalid' : ''}`}
+                  id="subject"
+                  value={formFields.subject}
+                  onChange={handleChange}
+                  placeholder="Enter the subject"
+                />
                 {formErrors.subject && <div className="invalid-feedback">{formErrors.subject}</div>}
               </div>
 
@@ -322,7 +331,7 @@ const Contact = () => {
                   name="message"
                   className={`form-control ${formErrors.message ? 'is-invalid' : ''}`}
                   id="message"
-                  rows="10"
+                  rows="5"
                   value={formFields.message}
                   onChange={handleChange}
                   placeholder="Enter your message"
@@ -330,16 +339,19 @@ const Contact = () => {
                 {formErrors.message && <div className="invalid-feedback">{formErrors.message}</div>}
               </div>
 
-              <div className="my-3">
-                <div className={`loading ${isSubmitted ? 'show' : ''}`}>Loading</div>
-                <div className={`error-message ${isSubmitted ? 'show' : ''}`}></div>
-                <div className={`sent-message ${isSubmitted ? 'show' : ''}`}>Your message has been sent. Thank you!</div>
-              </div>
-
               <div className="text-center">
-                <button type="submit" disabled={!isFormValid()}>Send Message</button>
+                <button type="submit" className="btn btn-primary">Send Message</button>
               </div>
             </form>
+
+            {isSubmitted && (
+              <div className="alert alert-primary alert-dismissible fade show" role="alert">
+                <strong>Success!</strong> Your message has been sent successfully.
+                <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            )}
+
+            <audio ref={audioRef} src="/simple-notification-152054.mp3" />
           </div>
         </div>
       </div>

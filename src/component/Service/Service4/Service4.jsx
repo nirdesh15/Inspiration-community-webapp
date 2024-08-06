@@ -15,7 +15,7 @@ const ServicesPage4 = () => {
               
                 <div className="container">
                     <h1 className="title display-3 text-center" style={{ fontWeight: 100 }}>
-                        <i className="bi bi-prescription2"></i> Service <br/><strong style={{ fontWeight: 600 }}>Community Nursing services:</strong>
+                    <i className="bi bi-balloon-heart"></i><i className="bi bi-people-fill"></i> <br/><strong style={{ fontWeight: 600 }}>Community Nursing services:</strong>
                     </h1>
                     <p className="lead text-left">
                     Our nursing services provide high-quality, professional healthcare in the comfort of your home. Our team of experienced Registered Nurses is dedicated to supporting individuals with disabilities to manage their health conditions and improve their quality of life. We offer a wide range of nursing services tailored to meet your unique needs, ensuring you receive the best possible care. Our services includes but not limited to:

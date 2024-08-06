@@ -15,7 +15,7 @@ const ServicesPage5 = () => {
               
                 <div className="container">
                     <h1 className="title display-3 text-center" style={{ fontWeight: 100 }}>
-                        <i className="bi bi-prescription2"></i> Service <br/><strong style={{ fontWeight: 600 }}>Community Participation</strong>
+                    <i className="bi bi-stack"></i> <br/><strong style={{ fontWeight: 600 }}>Community Participation</strong>
                     </h1>
                     <p className="lead text-left">
                     At Inspiration Community Care, we believe that being actively involved in the community is crucial for personal growth, social connections, and overall well-being. Our community participation services are designed to help individuals engage in meaningful activities, build relationships, and achieve their personal goals. We provide support and opportunities tailored to your interests and needs. Our services include:

@@ -15,7 +15,7 @@ const ServicesPage8 = () => {
               
                 <div className="container">
                     <h2 className="title display-3 text-center" style={{ fontWeight: 100 }}>
-                        <i className="bi bi-prescription2"></i> Service <br/><strong style={{ fontWeight: 400 }}>24/7 support services
+                    <i className="bi bi-clock"></i><br/><strong style={{ fontWeight: 400 }}>24/7 support services
                         </strong>
                     </h2>
                     <p className="lead text-left">

@@ -16,7 +16,7 @@ const ServicesPage2 = () => {
               
                 <div className="container">
                     <h1 className="title display-3 text-center" style={{ fontWeight: 100 }}>
-                        <i className="bi bi-prescription2"></i> Service <br/><strong style={{ fontWeight: 600 }}>Household Task</strong>
+                    <i className="bi bi-stars"></i><i className="bi bi-house-fill"></i> <br/><strong style={{ fontWeight: 600 }}>Household Task</strong>
                     </h1>
                     <p className="lead text-left">
                     Maintaining a clean and organized home is essential for a comfortable and stress-free living environment. Our household task services are designed to support you with everyday chores, ensuring your home remains a safe and welcoming space. Our dedicated support workers can assist with a variety of household tasks, tailored to your needs and preferences.

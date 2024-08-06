@@ -15,7 +15,7 @@ const ServicesPage6 = () => {
               
                 <div className="container">
                     <h2 className="title display-3 text-center" style={{ fontWeight: 100 }}>
-                        <i className="bi bi-prescription2"></i> Service <br/><strong style={{ fontWeight: 400 }}>Assistance for shared living accommodation</strong>
+                    <i className="bi bi-alexa"></i> <br/><strong style={{ fontWeight: 400 }}>Assistance for shared living accommodation</strong>
                     </h2>
                     <p className="lead text-left">
                     At Inspiration community care, we are committed to creating supportive and enriching shared living environments. Our comprehensive support services are designed to enhance the quality of life for individuals living in shared accommodations, promoting independence, cooperation, 

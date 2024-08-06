@@ -15,7 +15,7 @@ const ServicesPage3 = () => {
               
                 <div className="container">
                     <h1 className="title display-3 text-center" style={{ fontWeight: 100 }}>
-                        <i className="bi bi-prescription2"></i> Service <br/><strong style={{ fontWeight: 600 }}>Travel and Transport assistance</strong>
+                    <i className="bi bi-car-front-fill"></i><br/><strong style={{ fontWeight: 600 }}>Travel and Transport assistance</strong>
                     </h1>
                     <p className="lead text-left">
                     Navigating your community with ease and confidence is vital for maintaining independence and staying connected. Our travel and transport assistance services are designed to help you get where you need to go safely and efficiently. Whether it's for appointments, social activities, or running errands, our team is here to support your travel needs. Our services include:

@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
 import Carousel from 'react-bootstrap/Carousel';
 import { Link } from 'react-router-dom';
+import CommunityCareSection from '../contactcard/contactcard';
 
 const SimpleWavesComponent = () => {
 
@@ -117,7 +118,7 @@ const SimpleWavesComponent = () => {
               Whether your dream is to live independently to manage your health condition more effectively or to simply enjoy a better quality of life, we are here to support you every step <br/>of way.
             </div>
             <br/>
-            <Link to='/about'>
+            <Link to='/service'>
             <Button 
                   variant="outline-light"
                   size="lg"
@@ -348,7 +349,7 @@ const SimpleWavesComponent = () => {
   <div className="service-item">
     <Link to='/service-6'>
       <button>
-        <h3><i className="bi bi-person-wheelchair"></i></h3>
+        <h3><i className="bi bi-alexa"></i></h3>
         <p>Assistance for Shared Living Accommodation</p>
       </button>
     </Link>
@@ -356,7 +357,7 @@ const SimpleWavesComponent = () => {
   <div className="service-item">
     <Link to='/service-7'>
       <button>
-        <h3><i className="bi bi-alexa"></i></h3>
+        <h3><i className="bi bi-person-wheelchair"></i></h3>
         <p>Specialised Disability Assistance</p>
       </button>
     </Link>
@@ -372,23 +373,7 @@ const SimpleWavesComponent = () => {
 </div>
 
       </div>
-      <section>
-        <div className="parallax-one">
-          <div className="title-container">
-            <h1><span>Inspiration </span> Community Care</h1>
-            <h3>Contact Us Today for More Information</h3>
-
-
-          </div>
-          <div className="button-container">
-            <Link to='/contact'>
-              <Button>Contact Us</Button>
-            </Link>
-            <br />
-            <span>Only takes a few seconds!</span>
-          </div>
-        </div>
-      </section>
+      <CommunityCareSection/>
     </div>
     
   );

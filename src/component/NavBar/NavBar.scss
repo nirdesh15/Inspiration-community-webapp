@@ -7,21 +7,14 @@ body {
   @include md {
     padding-bottom: 3px;
   }
-  body.no-scroll {
+
+  &.no-scroll {
     overflow: hidden;
     position: relative;
   }
 }
-/* Add this CSS to your NavBar.scss or another global CSS file */
-
-/* Add this CSS to your NavBar.scss or another global CSS file */
-
-
-
 
 .navbar-custom {
-
-  
   height: 80px;
   display: flex;
   align-items: center;
@@ -47,7 +40,7 @@ body {
     font-weight: 800;
     display: flex;
     align-items: center;
-    justify-content: center; // Center horizontally
+    justify-content: center;
     flex-direction: row;
     position: relative;
     gap: 5px;
@@ -78,17 +71,20 @@ body {
   .nav-items {
     display: flex;
     left: 40%;
-    justify-content: center; // Center nav items
+    justify-content: center;
     align-items: center;
-    
-    }
 
     @include md {
       display: none;
     }
 
     a {
-      margin: 0 10px; // Adjust spacing as needed
+      margin: 0 10px;
+    }
+    .nav-dropdown:hover{
+      color: white;
+      transition: color 0.3s ease;
+      background-color: #127adc;
     }
   }
 
@@ -107,8 +103,6 @@ body {
       color: #1a9549 !important;
       border-bottom: 3px solid rgb(21, 129, 21);
     }
-
-   
   }
 
   .active-link {
@@ -123,7 +117,7 @@ body {
     margin-left: 20px;
 
     &.active-contact {
-      color: #FFFFFF;
+      color: #ffffff;
       background-color: #0450dc;
       border-bottom: 3px solid #1c41d6;
     }
@@ -132,7 +126,7 @@ body {
   .menuIcon {
     z-index: 9999;
     display: none;
-
+  
     @include sm {
       display: inline;
     }
@@ -145,36 +139,32 @@ body {
       width: 40px;
       height: 40px;
       cursor: pointer;
-      transition: left 0.3s eases;
-
-      
+      transition: left 0.3s ease;
     }
   }
 
   .menu {
     z-index: 999;
-    position: fixed; // Changed to fixed to cover the viewport
-    top: 0; // Aligned to top of the viewport
-    right: -100%; // Offscreen initially
+    position: fixed;
+    top: 0;
+    right: -60%;
     background-color: black;
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100vh;
     width: 80%;
-    transition: right 0.6s ease; // Adjusted transition timing
-    padding: 20px;
-    font-size: 24px;
+    transition:  right 0.8s ease-in-out, opacity 0.3s ease;
     opacity: 0;
     visibility: hidden;
-    gap: 5px;
+    gap: 10px;
+    padding-top: 20px;
+    font-size: 24px;
+    overflow-y: auto;
+    
 
-    @include sm{
-     margin-top: -160px;
-     height: 120vh;
-    }
     &.active {
       right: 0;
       opacity: 1;
@@ -182,11 +172,10 @@ body {
     }
 
     a {
-    
       text-decoration: none;
       color: white;
-      margin-top: 2px;
-      transition: color 0.8s ease;
+      margin-top: 10px;
+      transition: color 0.3s ease;
 
       &:hover {
         color: #1a9549;
@@ -198,33 +187,29 @@ body {
 
     .dropdown {
       position: relative;
-      width: 100%; // Make dropdown content align properly
+      width: 100%;
       text-align: center;
 
       .dropdownButton {
-        background: black;
+        background: none;
         border: none;
         color: white;
         font-size: 24px;
         cursor: pointer;
-        width: auto;
-        padding: auto;
+        width: 100%;
         transition: color 0.3s ease;
 
         &.active {
           color: #ccc;
         }
-
-
       }
 
       .dropdownContent {
         display: flex;
         flex-direction: column;
-        width: 100%; // Full width for proper alignment
-        position: absolute;
-        top: 100%;
-        right: 0;
+        width: 100%;
+        position: relative;
+        top: 0;
         background-color: black;
         padding: 10px;
         z-index: 1000;
@@ -233,9 +218,8 @@ body {
         transition: opacity 0.3s ease, visibility 0.3s ease;
         font-size: 17px;
         text-align: left;
-        margin-top: 4px;
         gap: 4px;
-        overflow: scroll;
+        overflow-y: auto;
 
         a {
           color: white;
@@ -254,6 +238,6 @@ body {
         opacity: 1;
         visibility: visible;
       }
-    }
+    } 
   }
-
+}

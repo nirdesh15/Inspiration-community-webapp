@@ -15,7 +15,7 @@ const ServicesPage7 = () => {
               
                 <div className="container">
                     <h2 className="title display-3 text-center" style={{ fontWeight: 100 }}>
-                        <i className="bi bi-prescription2"></i> Service <br/><strong style={{ fontWeight: 400 }}>Specialised Disability Assistance</strong>
+                    <i className="bi bi-person-wheelchair"></i> <br/><strong style={{ fontWeight: 400 }}>Specialised Disability Assistance</strong>
                     </h2>
                     <p className="lead text-left">
                     At Inspiration Community care, we provide specialised disability assistance tailored to meet the unique needs of individuals with various disabilities. Our dedicated team of professionals is trained to offer compassionate and expert support to enhance the quality of life, promote independence, and ensure full participation in daily activities and community life. Our specialized disability assistance services include:
