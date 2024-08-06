@@ -14,7 +14,7 @@
         <li><strong>Homepage:</strong> An overview of the company's mission and services.</li>
         <li><strong>About Us:</strong> Detailed information about the team and their expertise.</li>
         <li><strong>Services:</strong> A comprehensive list of healthcare services provided.</li>
-        <li><strong>Contact:</strong> A form for users to get in touch with the company.</li>
+        <li><strong>Contact:</strong> A form for users to get in touch with the company integrated with third party to send info through mails..</li>
         <li><strong>Gantt Chart Integration:</strong> Visual representation of project timelines and milestones.</li>
     </ul>
      <h2>Technologies Used</h2>
