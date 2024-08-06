@@ -21,7 +21,7 @@
       <ul>
         <li><strong>React.js:</strong> For building and managing the user interface.</li>
         <li><strong>HTML:</strong> For structuring the content of the web pages.</li>
-        <li><strong>CSS:</strong> For styling and layout.</li>
+        <li><strong>SCSS and bootstrap:</strong> For styling and layout.</li>
         <li><strong>JavaScript:</strong> For adding interactive elements.</li>
         <li><strong>Figma:</strong> Used for designing the UI/UX prototypes and mockups.</li>
         <li><strong>Gantt Chart:</strong> For project management and tracking timelines.</li>
