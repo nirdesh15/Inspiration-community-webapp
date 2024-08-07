@@ -16,9 +16,9 @@
         <li><strong>Services:</strong> A comprehensive list of healthcare services provided.</li>
         <li><strong>Contact:</strong> A form for users to get in touch with the company integrated with third party to send info through mails..</li>
         <li><strong>Gantt Chart Integration:</strong> Visual representation of project timelines and milestones.</li>
-    </ul>
+    </ul> 
     <h2>Demo video</h2>
-    
+https://github.com/user-attachments/assets/0ae7f4d6-9df4-40c8-8e85-78e6626cb696
      <h2>Technologies Used</h2>
       <ul>
         <li><strong>React.js:</strong> For building and managing the user interface.</li>
