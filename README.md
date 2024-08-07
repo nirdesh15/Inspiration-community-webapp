@@ -17,6 +17,8 @@
         <li><strong>Contact:</strong> A form for users to get in touch with the company integrated with third party to send info through mails..</li>
         <li><strong>Gantt Chart Integration:</strong> Visual representation of project timelines and milestones.</li>
     </ul>
+    <h2>Demo video</h2>
+    
      <h2>Technologies Used</h2>
       <ul>
         <li><strong>React.js:</strong> For building and managing the user interface.</li>
