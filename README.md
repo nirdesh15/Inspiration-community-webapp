@@ -20,7 +20,7 @@
     <h2>Demo video</h2>
 https://github.com/user-attachments/assets/0ae7f4d6-9df4-40c8-8e85-78e6626cb696
 <h3>Responsive design demo</h3>
-https://github.com/user-attachments/assets/af29d741-baab-4aad-a2df-711d1b7bf0f
+https://github.com/user-attachments/assets/3e5df670-2730-44cf-bba3-5dd57aa8b243
      <h2>Technologies Used</h2>
       <ul>
         <li><strong>React.js:</strong> For building and managing the user interface.</li>
